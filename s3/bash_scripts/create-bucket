@@ -1,0 +1,19 @@
+#! /user/bin/env bash
+
+set -e # Exit on error
+
+if [ -z "$1" ]; then
+  echo "THere needs to be a bucket name eg. ./bucket my-bucket-name"
+  exit 1
+fi
+
+BUCKET_NAME=$1
+REGION=${2:-us-east-2}
+# Omit LocationConstraint for us-east-1
+
+aws s3api create-bucket \
+    --bucket "$BUCKET_NAME" \
+    --create-bucket-configuration LocationConstraint="$REGION" \
+    --query Location \
+    --output text
+    
