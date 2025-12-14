@@ -1,0 +1,11 @@
+#! /user/bin/env bash
+
+echo "== delete S3 bucket via cloaudformation =="
+
+# Cloudformation really ever only uses the deploy commmand
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-s3-bucket.html
+
+STACK_NAME='cfn-s3-sample-seanbelon'
+aws cloudformation delete-stack \
+    --stack-name $STACK_NAME \
+    --region us-east-1 
