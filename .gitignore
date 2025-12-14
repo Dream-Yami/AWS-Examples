@@ -2,3 +2,6 @@
 temp/*
 .bundle/
 vendor/
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
